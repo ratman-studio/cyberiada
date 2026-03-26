@@ -1,12 +1,29 @@
 using UnityEngine;
 
-public class DrawCallBenchmark : MonoBehaviour
+public class DrawCallModes : MonoBehaviour
 {
-    public int objectCount = 2000;
-    public Vector3 areaSize = new Vector3(100, 10, 100);
+    public int objectCount = 1000;
+    public Vector3 areaSize = new Vector3(20, 5, 20);
+
+    public enum Mode
+    {
+        UniqueMaterial,
+        SharedMaterial,
+        GPUInstancing
+    }
+
+    public Mode mode;
+
+    public Material sharedMaterial;
 
     void Start()
     {
+        // włącz instancing jeśli trzeba
+        if (mode == Mode.GPUInstancing && sharedMaterial != null)
+        {
+            sharedMaterial.enableInstancing = true;
+        }
+        QualitySettings.shadows = ShadowQuality.Disable;
         for (int i = 0; i < objectCount; i++)
         {
             GameObject obj = GameObject.CreatePrimitive(PrimitiveType.Cube);
@@ -17,12 +34,22 @@ public class DrawCallBenchmark : MonoBehaviour
                 Random.Range(-areaSize.z, areaSize.z)
             );
 
-            
             Renderer renderer = obj.GetComponent<Renderer>();
-            renderer.material = new Material(Shader.Find("Standard"));
 
-            
-            obj.isStatic = false;
+            switch (mode)
+            {
+                case Mode.UniqueMaterial:
+                    renderer.material = new Material(sharedMaterial);
+                    break;
+
+                case Mode.SharedMaterial:
+                    renderer.sharedMaterial = sharedMaterial;
+                    break;
+
+                case Mode.GPUInstancing:
+                    renderer.sharedMaterial = sharedMaterial;
+                    break;
+            }
         }
     }
 }
