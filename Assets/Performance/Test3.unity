@@ -301,10 +301,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 1277687734219814698, guid: 64ae7405c689b75439d0775eee284fba, type: 3}
-  poolSize: 10000
+  poolSize: 1000000
   spawnRate: 0.01
-  objectLifetime: 10
-  mode: 1
+  objectLifetime: 20
+  mode: 0
   prewarm: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
