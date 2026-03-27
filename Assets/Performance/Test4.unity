@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7f7c92af006ce44d8801457601292a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectCount: 3000
+  objectCount: 5000
   useRigidbody: 1
   kinematic: 1
   moveSpeed: 5

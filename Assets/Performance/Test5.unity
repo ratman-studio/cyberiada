@@ -334,8 +334,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectCount: 1000
   areaSize: {x: 20, y: 5, z: 20}
-  mode: 0
-  sharedMaterial: {fileID: 0}
+  mode: 2
+  sharedMaterial: {fileID: 2100000, guid: 9bba6ffc3cf8d3a448f0c4bf3d4d2cfe, type: 2}
 --- !u!4 &915824122
 Transform:
   m_ObjectHideFlags: 0
