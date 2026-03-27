@@ -11,6 +11,7 @@ public class JustSmallUpdate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("");
+        int x = 0;
+        x += 1;
     }
 }
