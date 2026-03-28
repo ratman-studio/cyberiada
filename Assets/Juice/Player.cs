@@ -53,25 +53,9 @@ public class Player : MonoBehaviour
         if (col.CompareTag("Obstacle"))
         {
             GameEvents.Instance.Hit(transform.position);
+            Destroy(col.gameObject);
             // tutaj możesz dodać Game Over
         }
     }
     
-    void OnEnable()
-    {
-        if (GameEvents.Instance != null)
-            GameEvents.Instance.OnCollect += OnCollectAction;
-    }
-    
-    void OnDisable()
-    {
-        if (GameEvents.Instance != null)
-            GameEvents.Instance.OnCollect -= OnCollectAction;
-    }
-    
-    
-    void OnCollectAction(Vector3 pos)
-    {
-        Debug.Log("Collecetd!");
-    }
 }
